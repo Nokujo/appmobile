@@ -29,7 +29,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Icon _coeur = Icon(Icons.favorite_border, color: Colors.white,);
+  Icon _coeur = const Icon(Icons.favorite_border, color: Colors.white,);
   bool _likeBool = false;
   int _selectedIndex = 0;
   int currentIndex = 0;
@@ -58,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  
 
 
 
@@ -101,6 +102,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
     });
   }
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -170,6 +173,12 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Image.asset('../assets/images/zeldatp.jpg',
+              width: 450,
+              height: 500,),
+               Image.network('https://www.yourdecoration.fr/cdn/shop/files/pyramid-pp33561-the-legend-of-zelda-majoras-mask-affiche-61x91-5cm_3b8ee742-72a4-4351-aeff-ff4c739e19b2_500x.jpg?v=1731957899',
+              width: 200,
+               height: 300,),
               Text(_affichage),
             ],
           ),
