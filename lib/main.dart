@@ -56,18 +56,18 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  //int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
+  //void _incrementCounter() {
+    //setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+      //_counter++;
+    //});
+  //}
 
   @override
   Widget build(BuildContext context) {
@@ -80,33 +80,69 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image.asset('../assets/images/zeldatp.jpg',
-            width: 500,
-            height: 600,),
-            const Text(
-              '',
-            ),
-            Text(
-              '',
-              style: Theme.of(context).textTheme.headlineMedium,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                  children: [
+                    Text(
+                      'Zelda',
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                  ],
+                ),
+
+                Column(
+                  children: [
+                    Text(
+                      "Princesse courageuse et sage du royaume d'Hyrule, Zelda détient des pouvoirs magiques mystérieux et l'héritage de la Triforce. Elle guide Link dans sa quête pour sauver son monde des ténèbres. Découvrez son rôle clé dans l'aventure épique qui décidera du destin d'Hyrule.",
+                      textAlign: TextAlign.center,
+                      textDirection: TextDirection.rtl,
+                      style: Theme.of(context).textTheme.bodySmall, 
+
+                      
+                    ),
+                  ],
+                ),
+                SizedBox(height: 300,),
+                Row(
+                  children: [
+                    Text(
+                      'Link',
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 300,),
+                Row(
+                  children: [
+                    Text(
+                      'Ganondorf',
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                  ],
+                ),
+              ],            ),
+            SizedBox(width: 100,),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Image.asset('../assets/images/zelda.png',
+                width: 175,
+                height: 305,
+                ),
+                Image.asset('../assets/images/link.png',
+                width: 175,    
+                height: 305,
+                ),
+                Image.asset('../assets/images/ganondorf.png',
+                  width: 175,
+                  height: 305,
+                ),
+              ]
             ),
           ],
         ),
