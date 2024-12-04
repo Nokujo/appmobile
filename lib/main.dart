@@ -7,85 +7,53 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MySecondPage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
+class MySecondPage extends StatefulWidget {
+  const MySecondPage({super.key, required this.title});
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MySecondPage> createState() => _MySecondPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  //int _counter = 0;
-
-  //void _incrementCounter() {
-    //setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      //_counter++;
-    //});
-  //}
-
+class _MySecondPageState extends State<MySecondPage> {
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: (){
+                Navigator.pop(context);
+              },
+                child: const Icon(Icons.arrow_back),
+                
+                
+              ),
+              floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       
+
+
       body: Center(
+
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
+          
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                SizedBox(height: 50),
                 Row(
                   children: [
                     Text(
@@ -94,29 +62,57 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ],
                 ),
-
-                Column(
+                SizedBox(height: 20),
+                Row(
                   children: [
-                    Text(
-                      "Princesse courageuse et sage du royaume d'Hyrule, Zelda détient des pouvoirs magiques mystérieux et l'héritage de la Triforce. Elle guide Link dans sa quête pour sauver son monde des ténèbres. Découvrez son rôle clé dans l'aventure épique qui décidera du destin d'Hyrule.",
-                      textAlign: TextAlign.center,
-                      textDirection: TextDirection.rtl,
-                      style: Theme.of(context).textTheme.bodySmall, 
-
-                      
+                    Container(
+                      width: 200,
+                      height: 150,
+                      child: Text(
+                        "Princesse courageuse et sage du royaume d'Hyrule, Zelda détient des pouvoirs magiques mystérieux et l'héritage de la Triforce. Elle guide Link dans sa quête pour sauver son monde des ténèbres. Découvrez son rôle clé dans l'aventure épique qui décidera du destin d'Hyrule.",
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ),
+                    Padding(padding: EdgeInsets.only(left: 50)),
+                    Image.asset(
+                      '../assets/images/wisdom.png',
+                      width: 50,
+                      height: 50,
                     ),
                   ],
                 ),
-                SizedBox(height: 300,),
+                SizedBox(height: 100),
                 Row(
                   children: [
                     Text(
                       'Link',
                       style: Theme.of(context).textTheme.headlineMedium,
                     ),
+                    
                   ],
                 ),
-                SizedBox(height: 300,),
+                SizedBox(height: 20),
+                Row(
+                  children: [
+                    Container(
+                      width: 200,
+                      height: 180,
+                      child: Text(
+                        "Élu par l'épée légendaire, Link se dresse comme le dernier rempart d'Hyrule. Sa lame étincelante et son bouclier ancestral en main, ce héros au courage inébranlable trace sa voie à travers les ténèbres. Plus qu'un simple guerrier, il incarne l'espoir même du royaume, une légende vivante dont les exploits résonnent à travers les âges.",
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ),
+                    Padding(padding: EdgeInsets.only(left: 50)),
+                    Image.asset(
+                      '../assets/images/courage.png',
+                      width: 50,
+                      height: 50,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 50),
                 Row(
                   children: [
                     Text(
@@ -125,30 +121,53 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ],
                 ),
-              ],            ),
-            SizedBox(width: 100,),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 200,
+                      height: 150,
+                      child: Text(
+                        "Sorcier maléfique et roi des Gerudos, Ganondorf cherche à s'emparer de la Triforce pour dominer Hyrule. Avec sa puissance noire et son ambition dévorante, il est l'antagoniste ultime à défaire dans cette aventure épique.",
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ),
+                  const  Padding(padding: EdgeInsets.only(left: 50)),
+                    Image.asset(
+                      '../assets/images/force.jpg',
+                      width: 50,
+                      height: 50,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(width: 100),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Image.asset('../assets/images/zelda.png',
-                width: 175,
-                height: 305,
-                ),
-                Image.asset('../assets/images/link.png',
-                width: 175,    
-                height: 305,
-                ),
-                Image.asset('../assets/images/ganondorf.png',
+                Image.asset(
+                  'assets/images/zelda.png',
                   width: 175,
                   height: 305,
                 ),
-              ]
+                Image.asset(
+                  'assets/images/link.png',
+                  width: 175,
+                  height: 305,
+                ),
+                Image.asset(
+                  'assets/images/ganondorf.png',
+                  width: 175,
+                  height: 305,
+                ),
+              ],
             ),
-          ],
+          ]    
+          )
         ),
-      ),
-      
-    );
+      );
   }
 }
- 
